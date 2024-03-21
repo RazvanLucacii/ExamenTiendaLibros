@@ -61,7 +61,6 @@ namespace ExamenTiendaLibros.Controllers
                     carrito = HttpContext.Session.GetObject<List<int>>("CARRITO");
                 }
                 carrito.Add(idLibro.Value);
-                ViewData["NUMLIBROS"] = carrito;
                 HttpContext.Session.SetObject("CARRITO", carrito);
             }
             return RedirectToAction("Carrito", "Libros");
