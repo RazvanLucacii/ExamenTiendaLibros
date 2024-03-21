@@ -1,0 +1,67 @@
+﻿@model ExamenTiendaLibros.Models.Libro
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Libro</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.IdLibro)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IdLibro)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Titulo)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Titulo)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Autor)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Autor)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Editorial)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Editorial)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Portada)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Portada)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Resumen)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Resumen)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Precio)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Precio) €
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.IdGenero)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IdGenero)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="AñadirLibroCarrito" asp-controller="Libros" asp-route-idLibro="@Model.IdLibro" class="btn btn-dark">
+        Comprar
+    </a>
+</div>

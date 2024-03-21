@@ -1,0 +1,67 @@
+﻿@model IEnumerable<ExamenTiendaLibros.Models.Libro>
+
+@{
+    ViewData["Title"] = "Libros";
+}
+
+<h1>Libros</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IdLibro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Titulo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Autor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Editorial)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Portada)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Resumen)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Precio)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdLibro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Titulo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Autor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Editorial)
+            </td>
+            <td>
+                <img src="~/images/@Html.DisplayFor(modelItem => item.Portada)" style="width:80px; height:80px" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Resumen)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Precio) €
+            </td>
+            <td>
+                @Html.ActionLink("Detalles", "Details", new { idLibro = item.IdLibro  }, new{@class="btn btn-success"})
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

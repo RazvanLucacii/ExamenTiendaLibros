@@ -1,0 +1,42 @@
+﻿@model List<Libro>
+
+<h1>Carrito de Compras</h1>
+
+@if(Model == null)
+{
+    <h2>No hay ningun libro en el carrito</h2>
+}
+else
+{
+
+    <div class="container mt-5">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-1 g-2">
+            @foreach (Libro libro in Model)
+            {
+                <div class="col">
+                    <div class="card shadow-sm">
+                        <div class="d-flex justify-content-between align-items-center card-body">
+                            <img src="~/images/@libro.Portada" style="width: 100px; height:150px" />
+                            <div>
+                                <h4 class="card-title" style="font-weight: bold;">@libro.Titulo</h4>
+                                <p class="card-text">@libro.Autor</p>
+                            </div>
+                            <div class="ml-auto">
+                                <p style="font-weight: bold;">@libro.Precio €</p>
+                            </div>
+                            <div style="margin-right: 25px">
+                                <a asp-controller="Libros" asp-action="EliminarLibroCarrito" asp-route-idLibro="@libro.IdLibro" class="btn btn-danger">
+                                    Eliminar Libro
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+    <a asp-controller="Libros" asp-action="FinalizarCompra" class="btn btn-success mt-5">
+        Finalizar Compra
+    </a>
+}
